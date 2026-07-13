@@ -1,0 +1,56 @@
+name: Feature
+description: Solicite uma nova funcionalidade para o projeto.
+title: '[Feature]: '
+labels: ['feature']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use este template para propor novas funcionalidades.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descricao da funcionalidade
+      description: Descreva de forma objetiva a funcionalidade desejada.
+      placeholder: Ex. Criar pagina de contratos da transparencia.
+    validations:
+      required: true
+
+  - type: textarea
+    id: need
+    attributes:
+      label: Problema ou necessidade
+      description: Explique qual problema, necessidade ou oportunidade essa funcionalidade atende.
+      placeholder: Ex. Usuarios precisam consultar contratos publicados de forma centralizada.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Solucao proposta
+      description: Descreva como voce imagina que a funcionalidade deve funcionar.
+      placeholder: Ex. Criar uma pagina publica com filtros por orgao, periodo e status.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Criterios de aceite
+      description: Liste os criterios necessarios para considerar a funcionalidade concluida.
+      placeholder: |
+        - [ ] A pagina lista contratos publicados
+        - [ ] A busca filtra por palavra-chave
+        - [ ] O usuario consegue abrir os detalhes de um contrato
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Contexto adicional
+      description: Inclua referencias, links, imagens ou observacoes relevantes.
+    validations:
+      required: false
