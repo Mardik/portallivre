@@ -1,0 +1,57 @@
+name: Bug
+description: Relate um problema ou comportamento incorreto.
+title: '[Bug]: '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use este template para relatar bugs e problemas de comportamento.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descricao do problema
+      description: Descreva o problema encontrado de forma clara.
+      placeholder: Ex. A pagina de login exibe erro ao enviar credenciais validas.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Passos para reproduzir
+      description: Liste os passos necessarios para reproduzir o problema.
+      placeholder: |
+        1. Acesse ...
+        2. Clique em ...
+        3. Preencha ...
+        4. Veja o erro ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Comportamento esperado
+      description: Explique o que deveria acontecer.
+      placeholder: Ex. O usuario deveria ser autenticado e redirecionado para o painel.
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Comportamento atual
+      description: Explique o que esta acontecendo no lugar do comportamento esperado.
+      placeholder: Ex. A tela mostra uma mensagem de erro mesmo com dados validos.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencias ou contexto
+      description: Inclua prints, logs, ambiente, navegador, dispositivo ou outras informacoes uteis.
+    validations:
+      required: false

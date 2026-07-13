@@ -1,0 +1,56 @@
+name: Chore/Task
+description: Registre tarefas de infraestrutura, configuracao ou manutencao.
+title: '[Chore]: '
+labels: ['chore']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use este template para tarefas tecnicas, configuracoes e manutencao.
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objetivo da tarefa
+      description: Descreva o objetivo principal da tarefa.
+      placeholder: Ex. Configurar colecoes iniciais do PayloadCMS.
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical-context
+    attributes:
+      label: Contexto tecnico
+      description: Explique o contexto tecnico, dependencias ou decisoes relevantes.
+      placeholder: Ex. As colecoes devem seguir a estrutura definida para conteudo publico.
+    validations:
+      required: true
+
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Checklist ou entregaveis
+      description: Liste os itens que devem ser entregues.
+      placeholder: |
+        - [ ] Criar configuracao inicial
+        - [ ] Validar build local
+        - [ ] Documentar variaveis necessarias
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-impact
+    attributes:
+      label: Impacto esperado
+      description: Descreva o impacto esperado apos a conclusao da tarefa.
+      placeholder: Ex. O ambiente ficara pronto para cadastrar os primeiros conteudos.
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Observacoes
+      description: Inclua referencias, links, riscos ou detalhes complementares.
+    validations:
+      required: false
