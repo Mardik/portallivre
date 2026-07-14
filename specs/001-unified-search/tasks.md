@@ -30,9 +30,9 @@ validated independently.
 
 **Purpose**: Confirm the feature boundaries and validation targets before implementation
 
-- [ ] T001 Review current search touchpoints in `src/plugins/index.ts`, `src/search/beforeSync.ts`, and `src/app/(frontend)/search/page.tsx`
-- [ ] T002 Review existing publication lifecycle hooks in `src/collections/Pages/hooks/revalidatePage.ts` and `src/collections/Posts/hooks/revalidatePost.ts`
-- [ ] T003 [P] Review existing validation entry points in `tests/int/api.int.spec.ts`, `tests/e2e/frontend.e2e.spec.ts`, and `specs/001-unified-search/quickstart.md`
+- [x] T001 Review current search touchpoints in `src/plugins/index.ts`, `src/search/beforeSync.ts`, and `src/app/(frontend)/search/page.tsx`
+- [x] T002 Review existing publication lifecycle hooks in `src/collections/Pages/hooks/revalidatePage.ts` and `src/collections/Posts/hooks/revalidatePost.ts`
+- [x] T003 [P] Review existing validation entry points in `tests/int/api.int.spec.ts`, `tests/e2e/frontend.e2e.spec.ts`, and `specs/001-unified-search/quickstart.md`
 
 ---
 
@@ -42,12 +42,12 @@ validated independently.
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Expand plugin search scope from posts-only to pages and posts in `src/plugins/index.ts`
-- [ ] T005 [P] Add collection-aware mirrored fields for unified search entries in `src/search/fieldOverrides.ts`
-- [ ] T006 [P] Refactor collection-aware search sync mapping for public data only in `src/search/beforeSync.ts`
-- [ ] T007 Adapt shared result rendering for mixed page/post results in `src/components/Card/index.tsx` and `src/components/CollectionArchive/index.tsx`
-- [ ] T008 Generate updated Payload search types in `src/payload-types.ts`
-- [ ] T009 Validate shared accessibility and status-message baseline in `src/search/Component.tsx` and `src/app/(frontend)/search/page.client.tsx`
+- [x] T004 Expand plugin search scope from posts-only to pages and posts in `src/plugins/index.ts`
+- [x] T005 [P] Add collection-aware mirrored fields for unified search entries in `src/search/fieldOverrides.ts`
+- [x] T006 [P] Refactor collection-aware search sync mapping for public data only in `src/search/beforeSync.ts`
+- [x] T007 Adapt shared result rendering for mixed page/post results in `src/components/Card/index.tsx` and `src/components/CollectionArchive/index.tsx`
+- [x] T008 Generate updated Payload search types in `src/payload-types.ts`
+- [x] T009 Validate shared accessibility and status-message baseline in `src/search/Component.tsx` and `src/app/(frontend)/search/page.client.tsx`
 
 **Checkpoint**: Shared search infrastructure supports mixed result types and updated schema
 
@@ -61,11 +61,11 @@ validated independently.
 
 ### Implementation for User Story 1
 
-- [ ] T010 [US1] Query unified `search` results for pages and posts in `src/app/(frontend)/search/page.tsx`
-- [ ] T011 [P] [US1] Add collection-aware destination handling for unified result cards in `src/components/Card/index.tsx`
-- [ ] T012 [P] [US1] Update unified archive rendering and mixed-result layout in `src/components/CollectionArchive/index.tsx`
-- [ ] T013 [US1] Handle blank queries, result messaging, and empty states in `src/search/Component.tsx` and `src/app/(frontend)/search/page.tsx`
-- [ ] T014 [US1] Apply final search page copy and token-based styling in `src/app/(frontend)/search/page.tsx` and `src/search/Component.tsx`
+- [x] T010 [US1] Query unified `search` results for pages and posts in `src/app/(frontend)/search/page.tsx`
+- [x] T011 [P] [US1] Add collection-aware destination handling for unified result cards in `src/components/Card/index.tsx`
+- [x] T012 [P] [US1] Update unified archive rendering and mixed-result layout in `src/components/CollectionArchive/index.tsx`
+- [x] T013 [US1] Handle blank queries, result messaging, and empty states in `src/search/Component.tsx` and `src/app/(frontend)/search/page.tsx`
+- [x] T014 [US1] Apply final search page copy and token-based styling in `src/app/(frontend)/search/page.tsx` and `src/search/Component.tsx`
 
 **Checkpoint**: Visitors can search and browse unified page/post results without admin access
 
@@ -79,11 +79,11 @@ validated independently.
 
 ### Implementation for User Story 2
 
-- [ ] T015 [P] [US2] Add collection-level search scope configuration for pages in `src/plugins/index.ts`
-- [ ] T016 [P] [US2] Add collection-level search scope configuration for posts in `src/plugins/index.ts`
-- [ ] T017 [US2] Enforce configured search scope and public field whitelisting in `src/search/beforeSync.ts` and `src/search/fieldOverrides.ts`
-- [ ] T018 [US2] Implement an explicit search reindex or refresh path for pages and posts in `src/plugins/index.ts` and `src/search/beforeSync.ts`
-- [ ] T019 [US2] Generate updated Payload types for indexing controls in `src/payload-types.ts`
+- [x] T015 [P] [US2] Add collection-level search scope configuration for pages in `src/plugins/index.ts`
+- [x] T016 [P] [US2] Add collection-level search scope configuration for posts in `src/plugins/index.ts`
+- [x] T017 [US2] Enforce configured search scope and public field whitelisting in `src/search/beforeSync.ts` and `src/search/fieldOverrides.ts`
+- [x] T018 [US2] Implement an explicit search reindex or refresh path for pages and posts in `src/plugins/index.ts` and `src/search/beforeSync.ts`
+- [x] T019 [US2] Generate updated Payload types for indexing controls in `src/payload-types.ts`
 
 **Checkpoint**: Administrators can control whether eligible pages/posts participate in unified search
 
@@ -97,10 +97,10 @@ validated independently.
 
 ### Implementation for User Story 3
 
-- [ ] T020 [P] [US3] Align page publish and unpublish revalidation behavior with search visibility in `src/collections/Pages/hooks/revalidatePage.ts`
-- [ ] T021 [P] [US3] Align post publish and unpublish revalidation behavior with search visibility in `src/collections/Posts/hooks/revalidatePost.ts`
-- [ ] T022 [US3] Enforce draft and unpublished exclusion in public unified search reads in `src/app/(frontend)/search/page.tsx` and `src/search/beforeSync.ts`
-- [ ] T023 [US3] Add search lifecycle safeguards for deletions and de-scoping in `src/search/beforeSync.ts` and `src/plugins/index.ts`
+- [x] T020 [P] [US3] Align page publish and unpublish revalidation behavior with search visibility in `src/collections/Pages/hooks/revalidatePage.ts`
+- [x] T021 [P] [US3] Align post publish and unpublish revalidation behavior with search visibility in `src/collections/Posts/hooks/revalidatePost.ts`
+- [x] T022 [US3] Enforce draft and unpublished exclusion in public unified search reads in `src/app/(frontend)/search/page.tsx` and `src/search/beforeSync.ts`
+- [x] T023 [US3] Add search lifecycle safeguards for deletions and de-scoping in `src/search/beforeSync.ts` and `src/plugins/index.ts`
 
 **Checkpoint**: Search visibility stays in sync with the publish lifecycle for pages and posts
 
@@ -110,11 +110,11 @@ validated independently.
 
 **Purpose**: Validate the feature across automated checks and the documented quickstart flow
 
-- [ ] T024 [P] Update integration coverage for unified search behavior in `tests/int/api.int.spec.ts`
-- [ ] T025 [P] Update frontend E2E coverage for public search journeys in `tests/e2e/frontend.e2e.spec.ts`
-- [ ] T026 [P] Validate administrator-triggered search refresh behavior in `tests/int/api.int.spec.ts` and `specs/001-unified-search/quickstart.md`
-- [ ] T027 [P] Measure and document typical search response time for `/search?q=<term>` in `tests/e2e/frontend.e2e.spec.ts` and `specs/001-unified-search/quickstart.md`
-- [ ] T028 Validate and adjust the feature walkthrough in `specs/001-unified-search/quickstart.md`
+- [x] T024 [P] Update integration coverage for unified search behavior in `tests/int/api.int.spec.ts`
+- [x] T025 [P] Update frontend E2E coverage for public search journeys in `tests/e2e/frontend.e2e.spec.ts`
+- [x] T026 [P] Validate administrator-triggered search refresh behavior in `tests/int/api.int.spec.ts` and `specs/001-unified-search/quickstart.md`
+- [x] T027 [P] Measure and document typical search response time for `/search?q=<term>` in `tests/e2e/frontend.e2e.spec.ts` and `specs/001-unified-search/quickstart.md`
+- [x] T028 Validate and adjust the feature walkthrough in `specs/001-unified-search/quickstart.md`
 - [ ] T029 Run lint, type generation, integration, and E2E validation using `package.json` and record any follow-up fixes in `specs/001-unified-search/quickstart.md`
 
 ---
