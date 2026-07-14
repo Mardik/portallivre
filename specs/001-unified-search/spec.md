@@ -43,26 +43,26 @@ relevant, accessible results from the unified content base.
 
 ### User Story 2 - Define Indexed Content (Priority: P2)
 
-As a content administrator, I want to define which portal content participates in the
-unified search base, so that search results only include content intended for discovery.
+As a content administrator, I want to define whether pages and posts participate in the
+unified search base, so that search results only include the public content types
+intended for discovery.
 
 **Why this priority**: Index scope controls result quality and prevents irrelevant or
 restricted content from appearing in public search.
 
-**Independent Test**: Can be tested by enabling pages and posts for indexing, excluding
-other content types, publishing representative content in both, and confirming only the
-enabled content types appear in public search results.
+**Independent Test**: Can be tested by enabling one supported content type, disabling
+the other, publishing representative content in both, and confirming only the enabled
+content type appears in public search results.
 
 **Acceptance Scenarios**:
 
-1. **Given** pages or posts are configured as indexable, **When** eligible content in
-   those types is created or updated, **Then** its searchable representation is available
-   to the unified search base.
-2. **Given** a content type other than pages or posts exists, **When** content exists in
-   that type, **Then** it does not appear in public search results.
-3. **Given** indexed content is deleted or removed from the index scope, **When** a
-   visitor searches for terms that previously matched it, **Then** that content no longer
-   appears in public search results.
+1. **Given** pages are enabled for indexing and posts are disabled, **When** published
+   content exists in both types, **Then** only pages appear in public search results.
+2. **Given** posts are enabled for indexing and pages are disabled, **When** published
+   content exists in both types, **Then** only posts appear in public search results.
+3. **Given** an administrator changes the enabled search scope for pages or posts,
+   **When** the search base is refreshed, **Then** public search results reflect the new
+   scope.
 
 ---
 
@@ -108,10 +108,10 @@ discoverable.
   submitted by visitors.
 - **FR-002**: The system MUST return matching results from all content types configured
   as indexable in a single results list.
-- **FR-003**: The system MUST allow authorized content administrators to define which
-  portal content types are included in the search index.
-- **FR-004**: The system MUST exclude content types that are not configured as indexable
-  from public search results.
+- **FR-003**: The system MUST allow authorized content administrators to define whether
+  `pages` and `posts` are included in the search index.
+- **FR-004**: The system MUST exclude any supported content type that is disabled for
+  indexing from public search results.
 - **FR-005**: The system MUST synchronize indexed content when eligible content is
   created, updated, deleted, published, unpublished, or removed from index scope.
 - **FR-006**: The system MUST exclude drafts, unpublished content, restricted content,
@@ -161,7 +161,7 @@ discoverable.
   state in no more than 3 seconds for typical portal content volumes.
 - **SC-002**: At least 95% of searches for terms present in published indexed content
   return at least one relevant result during acceptance testing.
-- **SC-003**: Content administrators can add or remove an eligible content type from the
+- **SC-003**: Content administrators can enable or disable `pages` or `posts` in the
   index scope and verify the change through public search within one validation session.
 - **SC-004**: Acceptance testing confirms zero public search results expose drafts,
   unpublished content, restricted content, private fields, or internal administration
@@ -171,8 +171,8 @@ discoverable.
 
 ## Assumptions
 
-- The initial public search scope includes published portal content intended for public
-  discovery, limited to pages and posts unless planning explicitly expands the scope.
+- The initial public search scope is limited to the supported content types `pages` and
+  `posts`, unless future planning explicitly expands the scope.
 - Only authorized content administrators can define or change the indexed content scope.
 - Search results are intended for public portal visitors and therefore must use only
   published, publicly visible content.
