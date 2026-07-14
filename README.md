@@ -214,13 +214,19 @@ This command will check for any migrations that have not yet been run and try to
 
 ### Docker
 
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
+Use [Docker](https://www.docker.com) to start the local PostgreSQL database for development. To do so, follow these steps:
 
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
+1. Copy the example environment variables with `cp .env.example .env`
+1. Start the database with `docker compose up -d`
+1. Install dependencies with `pnpm install`
+1. Start the application with `pnpm dev`
+1. Open `http://localhost:3000` to login and create your first admin user
 
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
+The Docker Compose environment only runs PostgreSQL. The Next.js/Payload application runs on your host machine and connects to the database through `DATABASE_URL`.
+
+If your Docker installation does not support `docker compose`, use `docker-compose` instead.
+
+To stop the database, run `docker compose down`. To stop it and remove the local database data, run `docker compose down -v`.
 
 ### Seed
 
