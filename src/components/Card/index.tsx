@@ -4,30 +4,35 @@ import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 
-import type { Post } from '@/payload-types'
+import type { Post, Search } from '@/payload-types'
 
 import { Media } from '@/components/Media'
+import { getSearchResultHref } from '@/search/config'
 
-export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title'>
+export type PostCardData = Pick<Post, 'categories' | 'meta' | 'slug' | 'title'>
+export type SearchResultCardData = Pick<Search, 'categories' | 'doc' | 'meta' | 'slug' | 'title'>
+export type CardDocumentData = PostCardData | SearchResultCardData
 
 export const Card: React.FC<{
   alignItems?: 'center'
   className?: string
-  doc?: CardPostData
-  relationTo?: 'posts'
+  doc?: CardDocumentData
+  relationTo?: 'pages' | 'posts'
   showCategories?: boolean
   title?: string
 }> = (props) => {
   const { card, link } = useClickableCard({})
-  const { className, doc, relationTo, showCategories, title: titleFromProps } = props
+  const { className, doc, relationTo: relationToFromProps, showCategories, title: titleFromProps } = props
 
   const { slug, categories, meta, title } = doc || {}
   const { description, image: metaImage } = meta || {}
+  const relationTo =
+    relationToFromProps || (doc && 'doc' in doc ? doc.doc.relationTo : undefined)
 
   const hasCategories = categories && Array.isArray(categories) && categories.length > 0
   const titleToUse = titleFromProps || title
   const sanitizedDescription = description?.replace(/\s/g, ' ') // replace non-breaking space with white space
-  const href = `/${relationTo}/${slug}`
+  const href = relationTo ? getSearchResultHref({ relationTo, slug }) : '#'
 
   return (
     <article

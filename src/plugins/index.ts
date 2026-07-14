@@ -7,6 +7,12 @@ import { Plugin } from 'payload'
 import { revalidateRedirects } from '@/hooks/revalidateRedirects'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
+import {
+  getEnabledSearchCollections,
+  getSearchSettings,
+  isSupportedSearchCollection,
+  supportedSearchCollections,
+} from '@/search/config'
 import { searchFields } from '@/search/fieldOverrides'
 import { beforeSyncWithSearch } from '@/search/beforeSync'
 
@@ -81,9 +87,23 @@ export const plugins: Plugin[] = [
     },
   }),
   searchPlugin({
-    collections: ['posts'],
+    collections: [...supportedSearchCollections],
     beforeSync: beforeSyncWithSearch,
+    skipSync: async ({ collectionSlug, req }) => {
+      if (!isSupportedSearchCollection(collectionSlug)) {
+        return true
+      }
+
+      const settings = await getSearchSettings(req.payload)
+      const enabledCollections = getEnabledSearchCollections(settings)
+
+      return !enabledCollections.includes(collectionSlug)
+    },
     searchOverrides: {
+      admin: {
+        description:
+          'Entradas sincronizadas automaticamente para a busca pública. Após habilitar uma coleção já publicada, use o botão Reindex para preencher o índice existente.',
+      },
       fields: ({ defaultFields }) => {
         return [...defaultFields, ...searchFields]
       },
