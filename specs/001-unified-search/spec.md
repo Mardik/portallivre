@@ -8,6 +8,12 @@
 
 **Input**: User description: "Mecanismo de busca unificado, tendo como base o conteúdo do portal. Indexar o conteúdo do site de forma a prover uma base unificada para buscas. Poder fazer buscas de forma unificada com base em termos; Poder definir qual conteúdo será indexado."
 
+## Clarifications
+
+### Session 2026-07-14
+
+- Q: Which portal content types should be indexed in the first version? → A: Index only pages and posts.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Search Portal Content (Priority: P1)
@@ -18,13 +24,13 @@ so that I can find relevant pages, posts, and other published information from o
 **Why this priority**: Unified search is the primary user value; without it, the index
 configuration has no visible benefit to portal visitors.
 
-**Independent Test**: Can be tested by indexing at least two eligible content types,
-searching for terms that appear in published content, and confirming the visitor sees
+**Independent Test**: Can be tested by indexing pages and posts, searching for terms
+that appear in published content, and confirming the visitor sees
 relevant, accessible results from the unified content base.
 
 **Acceptance Scenarios**:
 
-1. **Given** published portal content has been indexed, **When** a visitor searches for
+1. **Given** published pages or posts have been indexed, **When** a visitor searches for
    a term that appears in that content, **Then** the system returns matching results from
    all eligible indexed content types in a single results list.
 2. **Given** no indexed content matches the submitted term, **When** a visitor searches,
@@ -43,16 +49,16 @@ unified search base, so that search results only include content intended for di
 **Why this priority**: Index scope controls result quality and prevents irrelevant or
 restricted content from appearing in public search.
 
-**Independent Test**: Can be tested by enabling one content type for indexing, excluding
-another, publishing representative content in both, and confirming only the enabled
-content type appears in public search results.
+**Independent Test**: Can be tested by enabling pages and posts for indexing, excluding
+other content types, publishing representative content in both, and confirming only the
+enabled content types appear in public search results.
 
 **Acceptance Scenarios**:
 
-1. **Given** a content type is configured as indexable, **When** eligible content in that
-   type is created or updated, **Then** its searchable representation is available to the
-   unified search base.
-2. **Given** a content type is not configured as indexable, **When** content exists in
+1. **Given** pages or posts are configured as indexable, **When** eligible content in
+   those types is created or updated, **Then** its searchable representation is available
+   to the unified search base.
+2. **Given** a content type other than pages or posts exists, **When** content exists in
    that type, **Then** it does not appear in public search results.
 3. **Given** indexed content is deleted or removed from the index scope, **When** a
    visitor searches for terms that previously matched it, **Then** that content no longer
@@ -166,8 +172,7 @@ discoverable.
 ## Assumptions
 
 - The initial public search scope includes published portal content intended for public
-  discovery, such as pages and posts, unless planning identifies additional eligible
-  content types.
+  discovery, limited to pages and posts unless planning explicitly expands the scope.
 - Only authorized content administrators can define or change the indexed content scope.
 - Search results are intended for public portal visitors and therefore must use only
   published, publicly visible content.
